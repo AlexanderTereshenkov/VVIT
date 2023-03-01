@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Registration</title>
+</head>
+  <body>
+    <form action="" method="post">
+      <p>
+        <label for="name">Your name:</label>
+        <input type="text" name="name">
+      </p>
+      <p>
+        <label for="login">Login:</label>
+        <input type="text" name="login">
+      </p>
+      <p>
+        <label for="password">Password:</label>
+        <input type="password" name="password">
+      </p>
+      <p>
+        <input type="submit" value="Sign In">
+        {%if userExist%}
+        <p>Пользователь с таким логином уже существует</p>
+        {% elif emptyString%}
+        <p>Необходимо заполнить все поля</p>
+        {% endif %}
+      </p>
+    </form>
+  </body>
+</html>

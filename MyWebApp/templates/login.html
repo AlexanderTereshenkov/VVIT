@@ -15,7 +15,14 @@
             <input type="password" name="password">
         </p>
         <p>
-            <input type="submit">
+            <input type="submit" value="login" name="login">
+
+            <input type="submit" value="registration" name="registration">
+            {% if emptyString %}
+            <p>Поле логина и пароля не должны быть пустыми</p>
+            {% elif nonePerson %}
+            <p>Пользователь не найден</p>
+            {% endif %}
         </p>
     </form>
 </body>
