@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+</head>
+<body>
+  <form action="" method="post">
+    {%if full_name%}
+    <p>Привет, {{full_name}}</p>
+    <p>Логин: {{login}}</p>
+    <p>Пароль: {{password}}</p>
+    {% elif full_name == "" %}
+      <p> Введен некорректно логин или пароль</p>
+      {% elif nonePerson == "" %}
+      <p>Пользователь не найден</p>
+      {% endif %}
+  </form>
+</body>
+</html>
