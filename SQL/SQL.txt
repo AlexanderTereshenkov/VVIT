@@ -1,0 +1,57 @@
+CREATE DATABASE vvitlab1;
+
+CREATE TABLE chair(
+	chair_id SERIAL PRIMARY KEY,
+	chair_name VARCHAR NOT NULL UNIQUE,
+	dean VARCHAR NOT NULL
+);
+
+CREATE TABLE s_group(
+	group_id SERIAL PRIMARY KEY,
+	group_name VARCHAR NOT NULL UNIQUE,
+	g_chair_id VARCHAR NOT NULL,
+	FOREIGN KEY(g_chair_id) REFERENCES chair(chair_name)
+);
+
+CREATE TABLE student(
+	student_id SERIAL PRIMARY KEY,
+	s_name VARCHAR NOT NULL,
+	passport VARCHAR(10) NOT NULL,
+	student_group VARCHAR NOT NULL,
+	FOREIGN KEY (student_group) REFERENCES s_group(group_name)
+);
+
+INSERT INTO chair(chair_name, dean)
+VALUES
+('Мат. анализ', 'Информационные технологии'),
+('Безопасность телекоммуникаций', 'Кибернетика и информационная безопасность');
+
+INSERT INTO s_group(group_name, g_chair_id)
+VALUES
+('БВТ2205', 'Мат. анализ'),
+('БВТ2208', 'Мат. анализ'),
+('БИБ2305', 'Безопасность телекоммуникаций'),
+('БИБ0928', 'Безопасность телекоммуникаций');
+
+INSERT INTO student(s_name, passport, student_group)
+VALUES
+('Алексей', '1856403894', 'БВТ2205'),
+('Андрей', '5739385752', 'БВТ2205'),
+('Михаил', '4638302856', 'БВТ2205'),
+('Александр', '5673937560', 'БВТ2205'),
+('Анастасия', '3754948574', 'БВТ2205'),
+('aaaadasd', '9384121856', 'БВТ2208'),
+('Борис', '4756392018', 'БВТ2208'),
+('Владимир', '1542789456', 'БВТ2208'),
+('Николай', '1568920348', 'БВТ2208'),
+('Мария', '1234567891', 'БВТ2208'),
+('Марина', '2134567892', 'БИБ2305'),
+('Ольга', '1234623789', 'БИБ2305'),
+('Алексей', '1234567437', 'БИБ2305'),
+('Андрей', '1265237890', 'БИБ2305'),
+('Александр', '1324354657', 'БИБ2305'),
+('Ольга', '1524367895', 'БИБ0928'),
+('Тимофей', '1029384756', 'БИБ0928'),
+('Андрей', '1920374856', 'БИБ0928'),
+('Ольга', '1324756891', 'БИБ0928'),
+('Ирина', '1092564738', 'БИБ0928');
